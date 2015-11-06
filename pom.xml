@@ -61,6 +61,7 @@
 	</dependencies>
 	
 	<build>
+		<finalName>cf-workshop-spring-boot</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
