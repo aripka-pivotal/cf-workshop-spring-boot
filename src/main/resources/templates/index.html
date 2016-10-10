@@ -24,8 +24,8 @@
 
     <div class="row">
       <div class="large-12 columns">
-        <h3 style="color:#01786E">Demo Application Pivotal CF</h3>
-        <hr/>
+        <h3 style="color:#01786E" th:text="${appName} != null ?  'Demo Application Pivotal CF - ' + ${appName}: 'Demo Application Pivotal CF'"></h3>
+         
       </div>
     </div>
 

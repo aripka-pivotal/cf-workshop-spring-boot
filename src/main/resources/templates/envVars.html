@@ -26,7 +26,7 @@
 
     <div class="row">
       <div class="large-12 columns">
-        <h3 style="color:#01786E">Demo Application Pivotal CF</h3>
+        <h3 style="color:#01786E" th:text="${appName} != null ?  'Demo Application Pivotal CF - ' + ${appName}: 'Demo Application Pivotal CF'"></h3>
         <hr />
       </div>
     </div>
@@ -36,8 +36,10 @@
       	<div class="panel">
           <h4>Environment Information</h4>
 				<br />
+			
+		  <p th:text="'The application name is ' + ${vcapApplication != null ? vcapApplication['application_name']: 'null'}"/>	
 				
-		  <p th:text="'The current server time is ' + ${serverTime}"/>		
+		  <p th:text="'The current server time is ' + ${serverTime}"/>			
           <p th:text="'The application port is ' + ${port}"/>		
           
           <p th:text="'The instance ID is ' + ${vcapApplication != null ? vcapApplication['instance_index']: 'null'}"/>

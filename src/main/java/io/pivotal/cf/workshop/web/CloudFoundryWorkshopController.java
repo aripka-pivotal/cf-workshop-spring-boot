@@ -41,7 +41,8 @@ public class CloudFoundryWorkshopController {
 		}
 
 		addAppInstanceIndex(model);
-
+		addAppName(model);
+		
 		return "index";
 	}
 
@@ -58,8 +59,16 @@ public class CloudFoundryWorkshopController {
 		model.addAttribute("instanceIndex", instanceIndex != null ? instanceIndex : "no index environment variable");
 	}
 
-	
-	
+	private void addAppName(Model model) throws Exception {
+		
+		String appName = null;
+
+		if (getVCAPMap() != null){
+			appName = (String) getVCAPMap().get("application_name");
+		}
+
+		model.addAttribute("appName", appName);
+	}
 	
 	@SuppressWarnings("rawtypes")
 	private Map getVCAPMap() throws Exception {
@@ -137,6 +146,8 @@ public class CloudFoundryWorkshopController {
 			logger.info("no cloudFactory");
 		}
 
+		addAppName(model);
+		
 		return "envVars";
 	}
 
