@@ -58,6 +58,9 @@ public class CloudFoundryWorkshopController {
 		model.addAttribute("instanceIndex", instanceIndex != null ? instanceIndex : "no index environment variable");
 	}
 
+	
+	
+	
 	@SuppressWarnings("rawtypes")
 	private Map getVCAPMap() throws Exception {
 		String vcapApplication = System.getenv("VCAP_APPLICATION");
@@ -79,7 +82,7 @@ public class CloudFoundryWorkshopController {
 	 * @return The path to the view.
 	 * @throws Exception
 	 */
-	@RequestMapping(value = "/env", method = RequestMethod.GET)
+	@RequestMapping(value = "/envVars", method = RequestMethod.GET)
 	public String env(Model model) throws Exception {
 
 		Date date = new Date();
@@ -134,7 +137,7 @@ public class CloudFoundryWorkshopController {
 			logger.info("no cloudFactory");
 		}
 
-		return "env";
+		return "envVars";
 	}
 
 	/**
